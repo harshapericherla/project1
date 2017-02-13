@@ -86,7 +86,14 @@ public class Productcontroller {
 		productservice.updateProduct(product);
 		return "redirect:/all/product/getallproducts";
 	}
-
+@RequestMapping("/all/product/productsByCategory")
+ public String getProductByCategory(@RequestParam(name="searchCondition")String searchCondition,Model model){
+	List<Product> products = productservice.getallproducts();
+	  model.addAttribute("products",products);
+	  model.addAttribute("searchCondition",searchCondition);
+	  return "productlist";
+ }
+ 
 }
 
 

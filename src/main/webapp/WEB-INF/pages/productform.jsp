@@ -12,7 +12,7 @@
 <script>
   $(function(){
 	  $('input[name=mfg]').datepicker({
-		 format:'YYYY-mm-dd ' 
+		 format:'YYYY-mm-dd '
 	  });
   });
 </script>   
@@ -22,8 +22,10 @@
 
   <div class="container-wrapper"> 
   <div class="container">
+  <c:url var="addAction" value="/admin/product/addproduct"></c:url>
   <form:form id="registerForm" modelAttribute="product" method="post"
-   action="addproduct">
+   action="${addAction}">
+   
   <div class="form-group">
    <label for="id"></label>
    <form:hidden path="id"/>
