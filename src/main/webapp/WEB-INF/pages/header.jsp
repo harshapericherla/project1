@@ -18,40 +18,43 @@
   <!-- Main bootstrap -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  
+  <!-- Local Files -->
+  <link rel="stylesheet" href="resources/css/header.css"/>
+  <script src="resources/js/header.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-<div class="container-fluid">
-   <div class="navbar-header">
-     <a class="navbar-brand" href="#">CyberMart</a>
-   </div>
+
+
+<nav class="navbar navbar-default">
+ <div class="container-fluid">
+ <h1><span id="two">Cyber</span>Mart<span id="dot">....</span></h1>
   <ul class="nav navbar-nav">
       <c:url var="home" value="/home"></c:url>
-     <li><a id="uniq" href="${home}">Home</a></li>
+     <li><a href="${home}"><span id="on">Home</span></a></li>
      
      <c:url var="aboutus" value="/aboutus"></c:url>
-     <li><a href="${aboutus}">About Us</a></li>
+     <li><a href="${aboutus}"><span id="on">About Us</span></a></li>
      
      <c:url var="productform" value="/admin/product/productform"></c:url>
-     <li><a href="${productform }">Add New Product</a></li>
+     <li><a href="${productform }"><span id="on">Add New Product</span></a></li>
      
      <c:url var="allproducts" value="/all/product/getallproducts"></c:url>
-     <li><a href="${allproducts }">Browse products</a></li>
+     <li><a href="${allproducts }"><span id="on">Browse products</span></a></li>
      
      <li class="dropdown">
-        <a href="" class="dropdown-toggle" data-toggle="dropdown">Select By Category<b class="caret"></b></a>  
+        <a id="uni" href="" class="dropdown-toggle" data-toggle="dropdown"><span id="on">Select By Category</span><b class="caret"></b></a>  
               <ul class="dropdown-menu">
                   <c:url var="url1" value="/all/product/productsByCategory?searchCondition=fresh"></c:url>
-                  <li><a href="${url1}">New Arrivals</a></li>
+                  <li><a id="uni" href="${url1}"><span id="on">New Arrivals</span></a></li>
                   <c:url var="url2" value="/all/product/productsByCategory?searchCondition=General"></c:url>
-                  <li><a href="${url2}">General</a></li>
+                  <li><a id="uni" href="${url2}"><span id="on">General</span></a></li>
                   <c:url var="url3" value="/all/product/productsByCategory?searchCondition=discount"></c:url>
-                  <li><a href="${url3}">Discount</a></li>
+                  <li><a id="uni" href="${url3}"><span id="on">Discount</span></a></li>
               </ul>
     </li>
   </ul>
-</div>
+  </div>
 </nav>
+
 </body>
 </html>

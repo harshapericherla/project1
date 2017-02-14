@@ -12,6 +12,10 @@
     <property name="prefix" value="/WEB-INF/pages/"></property>
     <property name="suffix" value=".jsp"></property>
   </bean>
-    
- 
+  
+  <bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10240000" /> 
+  </bean>
+   <mvc:resources location="/WEB-INF/resources/" mapping="/resources/**"></mvc:resources>
  </beans>

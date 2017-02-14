@@ -15,7 +15,9 @@
 		 format:'YYYY-mm-dd '
 	  });
   });
-</script>   
+</script>  
+<c:url var="style" value="/resources/css/header.css"></c:url>
+<link rel="stylesheet" href="${style}"/> 
 </head>
 <body>
  
@@ -24,7 +26,7 @@
   <div class="container">
   <c:url var="addAction" value="/admin/product/addproduct"></c:url>
   <form:form id="registerForm" modelAttribute="product" method="post"
-   action="${addAction}">
+   action="${addAction}" enctype="multipart/form-data">
    
   <div class="form-group">
    <label for="id"></label>
@@ -64,7 +66,10 @@
 </c:forEach>
 </div>
  
-
+<div class="form-group">
+<label for="image">Image</label>
+<form:input path="image" type="file"/>
+</div>
 
   <input type="submit" value="Add Product" class="btn btn-default">
    

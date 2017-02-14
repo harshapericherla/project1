@@ -4,6 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>List of Products</title>
+<c:url var="style" value="/resources/css/header.css"></c:url>
+<link rel="stylesheet" href="${style}"/> 
 </head>
 <script>
 $(document).ready(function(){
@@ -14,6 +16,7 @@ $(document).ready(function(){
     });
 });
 </script>
+
 <body>
 
    <div class="container">
@@ -21,14 +24,19 @@ $(document).ready(function(){
      <table class="table table-stripped">
         <thead>
          <tr>
+             <th>Image</th>
             <th>Product Name</th>
             <th>Description</th>
             <th>Category Details</th>
-            <th>Edit/Delete/View</th>
+            <th>View/Delete/Edit</th>
          </tr>
         </thead>
         <c:forEach var="p" items="${products}" >
           <tr>
+            <td>
+              <c:url var="sr" value="/resources/images/${p.id}.png"></c:url>
+              <img src="${sr }" height="100px" width="100px"/>
+            </td>
             <td>${p.name}</td>
             <td>${p.description}</td>
             <td>${p.category.categorydetails}</td>
