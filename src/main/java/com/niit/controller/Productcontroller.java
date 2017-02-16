@@ -34,7 +34,7 @@ import com.niit.model.Product;
 @Controller
 public class Productcontroller {
 	@Autowired
-	private Productservice productservice;
+	private Productservice productservice;	
 	@Autowired
 	private Categoryservice categoryservice;
 	Logger logger = Logger.getLogger(Product.class);
