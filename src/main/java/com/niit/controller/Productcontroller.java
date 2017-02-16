@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -29,13 +30,15 @@ import org.springframework.web.servlet.ModelAndView;
 import com.niit.service.*;
 
 import com.niit.model.Product;
-  
+
 @Controller
 public class Productcontroller {
 	@Autowired
 	private Productservice productservice;
 	@Autowired
 	private Categoryservice categoryservice;
+	Logger logger = Logger.getLogger(Product.class);
+	
    public Productcontroller(){
 	   System.out.println("creating instance for productcontroller");
    }
@@ -72,7 +75,7 @@ public class Productcontroller {
   public String getallproducts(Model model){
 	  List<Product> products = productservice.getallproducts();
 	  model.addAttribute("products",products);
-	  return "/productlist";   
+	  return "productlist";   
 	}
  @RequestMapping("/all/product/viewproduct/{id}") 
   public String viewproduct(@PathVariable int id,Model model){
@@ -109,7 +112,7 @@ public class Productcontroller {
 	  model.addAttribute("searchCondition",searchCondition);
 	  return "productlist";
  }
- 
+
 }
 
 

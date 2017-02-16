@@ -6,11 +6,14 @@
 <title>List of Products</title>
 <c:url var="style" value="/resources/css/header.css"></c:url>
 <link rel="stylesheet" href="${style}"/> 
+<c:url var="style" value="/resources/css/productList.css"></c:url>
+<link rel="stylesheet" href="${style}"/>
 </head>
 <script>
 $(document).ready(function(){
     var searchCondition = '${searchCondition}';
     $(".table").DataTable({
+    	"dom":' <"search"f><"top"l>rt<"bottom"ip><"clear">',
     	"lengthMenu":[[3,5,7,-1],[3,5,7,"All"]],      //"lengthMenu":[[3,5,7,-1],[3,5,7,"All"]],
     	"oSearch":{"sSearch":searchCondition}
     });

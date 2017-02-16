@@ -24,6 +24,12 @@
             <list>  
                 <value>com.niit.model.Product</value>  
                 <value>com.niit.model.Category</value>
+                <value>com.niit.model.Users</value>  
+                <value>com.niit.model.Authorities</value>
+                <value>com.niit.model.Customer</value>
+                <value>com.niit.model.ShippingAddress</value>
+                <value>com.niit.model.BillingAddress</value>
+                <value>com.niit.model.Cart</value>
             </list>  
         </property> 
   <property name="hibernateProperties">

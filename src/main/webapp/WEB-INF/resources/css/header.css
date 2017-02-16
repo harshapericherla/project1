@@ -17,6 +17,10 @@ margin:0 0 0 15px;
 #on{
 color:white;
 }
+#one{
+	color:white;
+	font-family:cursive;
+}
 #two{
 color:#e8491d;
 font-size:50px;
@@ -40,15 +44,24 @@ color:#cccccc;
  }
 .dropdown-menu,li.dropdown{
      background-color:#35424a ;
+     
 }
+
 .caret{
   color:#e8491d;
   
 }
-#on:hover{
+#on:hover,#one:hover{
 color:#e8491d;
 }
 
 .navbar-default{
  border-bottom:2px solid #e8491d;
+}
+.dropdown-menu li a:hover{
+	background-color:#35424a;
+	font-size:15px;
+}
+#uni{
+	background-color:#35424a;
 }

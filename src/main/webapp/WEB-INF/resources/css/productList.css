@@ -1,0 +1,38 @@
+@CHARSET "ISO-8859-1";
+div.dataTables_length label {
+    width: 460px;
+    float: left;
+    text-align: left;
+    font-size:15px;
+    font-family:cursive;
+}
+
+div.dataTables_length select {
+    width: 75px;
+    
+}
+ 
+div.dataTables_filter label {
+    float: right;
+    width: 460px;
+    font-family:cursive;
+    color:#485CDC;
+}
+ div.dataTables_filter label:hover{
+    font-size:20px;
+    color:#485CDC;
+ }
+div.dataTables_info {
+    padding-top: 8px;
+    
+}
+ 
+div.dataTables_paginate {
+    float: right;
+    margin: 0;
+}
+ 
+table {
+    margin: 1em 0;
+    clear: both;
+}

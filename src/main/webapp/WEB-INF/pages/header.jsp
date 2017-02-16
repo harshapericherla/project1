@@ -18,9 +18,14 @@
   <!-- Main bootstrap -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
   <!-- Local Files -->
-  <link rel="stylesheet" href="resources/css/header.css"/>
-  <script src="resources/js/header.js"></script>
+  <c:url var="style" value="/resources/css/header.css"></c:url>
+  <link rel="stylesheet" href="${style}"/> 
+  
+  <c:url var="script" value="resources/js/header.js"></c:url>
+  <script src="${script}"></script>
+  
 </head>
 <body>
 
@@ -43,14 +48,13 @@
      
      <li class="dropdown">
         <a id="uni" href="" class="dropdown-toggle" data-toggle="dropdown"><span id="on">Select By Category</span><b class="caret"></b></a>  
+                     
               <ul class="dropdown-menu">
-                  <c:url var="url1" value="/all/product/productsByCategory?searchCondition=fresh"></c:url>
-                  <li><a id="uni" href="${url1}"><span id="on">New Arrivals</span></a></li>
-                  <c:url var="url2" value="/all/product/productsByCategory?searchCondition=General"></c:url>
-                  <li><a id="uni" href="${url2}"><span id="on">General</span></a></li>
-                  <c:url var="url3" value="/all/product/productsByCategory?searchCondition=discount"></c:url>
-                  <li><a id="uni" href="${url3}"><span id="on">Discount</span></a></li>
-              </ul>
+               <c:forEach var="c" items="${categories}">
+                   <c:url var="url1" value="/all/product/productsByCategory?searchCondition=${c.categorydetails}"></c:url>
+                  <li><a href="${url1}"><span id="one">${c.categorydetails}</span></a></li>
+               </c:forEach>
+               </ul>
     </li>
   </ul>
   </div>
