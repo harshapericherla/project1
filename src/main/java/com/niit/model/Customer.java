@@ -13,6 +13,7 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 private int id;
+
 private String firstname;
 private String lastname;
 private String email;
@@ -62,5 +63,29 @@ public String getPhonenumber() {
 }
 public void setPhonenumber(String phonenumber) {
 	this.phonenumber = phonenumber;
+}
+public Users getUsers() {
+	return users;
+}
+public void setUsers(Users users) {
+	this.users = users;
+}
+public BillingAddress getBillingAddress() {
+	return billingAddress;
+}
+public void setBillingAddress(BillingAddress billingAddress) {
+	this.billingAddress = billingAddress;
+}
+public ShippingAddress getShippingAddress() {
+	return shippingAddress;
+}
+public void setShippingAddress(ShippingAddress shippingAddress) {
+	this.shippingAddress = shippingAddress;
+}
+public Cart getCart() {
+	return cart;
+}
+public void setCart(Cart cart) {
+	this.cart = cart;
 }
 }

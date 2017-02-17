@@ -56,7 +56,9 @@
                </c:forEach>
                </ul>
     </li>
+    <li><a href="<c:url value="/all/registrationForm"></c:url>"><span id="on">Register</span></a></li>
   </ul>
+  
   </div>
 </nav>
 

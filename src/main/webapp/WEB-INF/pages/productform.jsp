@@ -12,7 +12,7 @@
 <script>
   $(function(){
 	  $('input[name=mfg]').datepicker({
-		 format:'YYYY-mm-dd ';
+		 format:'YYYY-mm-dd'
 	  });
   });
 </script>  
