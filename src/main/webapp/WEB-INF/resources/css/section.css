@@ -1,0 +1,44 @@
+@CHARSET "ISO-8859-1";
+@import "header.css";
+body section{
+	background-image: url("E:/sample images/backpack5.jpg");
+	background-repeat: no-repeat;
+	margin:0;
+	background-size:100% 100%;
+	padding-bottom:595px;
+	background-color:black;
+	
+}
+section#one h1{
+	position:relative;
+	color:white;
+	text-transform:uppercase;
+	font-size:65px;
+	z-index:2;
+	top:100px;
+	text-align:center;
+	opacity:0.8;
+	font-family: 'Arial Narrow';
+	font-weight:bold;
+}
+section#one h2{
+	position:relative;
+	color:white;
+	text-transform:uppercase;
+	font-size:25px;
+	z-index:2;
+	top:340px;
+	text-align:center;
+	opacity:0.8;
+	
+	
+}
+section#one h2 a{
+	text-decoration:overline;
+	color:white;
+}
+section#one h2 a:hover{
+	text-decoration:none;
+	font-weight:bold;
+	font-size:35px;
+}

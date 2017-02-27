@@ -1,4 +1,6 @@
 @CHARSET "ISO-8859-1";
+@import "header.css";
+@import "section.css";
 div.dataTables_length label {
     width: 460px;
     float: left;
@@ -17,6 +19,7 @@ div.dataTables_filter label {
     width: 460px;
     font-family:cursive;
     color:#485CDC;
+    
 }
  div.dataTables_filter label:hover{
     font-size:20px;
@@ -35,4 +38,18 @@ div.dataTables_paginate {
 table {
     margin: 1em 0;
     clear: both;
+}
+.fixed-nav-bar{
+	
+    height:85px;
+	width:100%;
+	top:0;
+	left:0;
+	z-index:9999;
+	padding-top:15px;
+    padding-bottom:10px;
+    opacity:0.9;
+   
+    background-color:red;
+
 }

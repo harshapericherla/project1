@@ -1,67 +1,86 @@
 @CHARSET "ISO-8859-1";
-.navbar-default{
- background-color:#35424a;
-}
-h1{
-background-color:#35424a;
-color:white;
 
-padding:0;
-margin:0 0 0 15px;
+/* desktop */
+.fixed-nav-bar{
+	position:fixed;
+    height:85px;
+	width:100%;
+	top:0;
+	left:0;
+	z-index:9999;
+	padding-top:15px;
+    padding-bottom:10px;
+    opacity:0.9;
+   
+    background-color:black;
+
 }
-#dot{
-	font-size:30px;
-	padding:10px;
-	letter-spacing:10px;
+
+/* all views */
+.navbar-default{
+	background-color:black;
+	border-color:black;
+    
 }
-#on{
-color:white;
+.navbar-right{
+	padding-right:10px;
+	
 }
-#one{
+/* navbar header */ 
+.navbar-brand{
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:20px;
+	 
+	padding-left:60px;
+	
+	
+}
+.navbar-header{
+	position:relative;
+	margin-left:50px;
+	border: 2px solid white;
+	
+}
+
+	
+
+
+header{
+	padding:0;
+	margin:0;
+    background-color:black;
+}
+/* custom font */
+.on,.one{
+	color:grey;
+	text-transform:uppercase;
+    font-family: 'Arial Narrow';
+    font-weight:bold;
+    font-size:16px;
+    
+}
+
+.dropdown,.dropdown-menu{
+	background-color:black;
+    opacity:1;
+    color:black;
+}
+.on:hover{
 	color:white;
-	font-family:cursive;
 }
-#two{
-color:#e8491d;
-font-size:50px;
-}
-.navbar-nav a:hover{
-color:#cccccc;
- font-weight:bold;
- font-size:15px;
- text-decoration:none;
- border:1px solid white;
- border-radius:35px;
- }
- .table-stripped a:hover{
- font-size:20px;
- }
- .glyphicon-remove{
- color:#e8491d;
- }
- .glyphicon-pencil{
- color:green;
- }
-.dropdown-menu,li.dropdown{
-     background-color:#35424a ;
-     
+.one:hover{
+  color:white;	
 }
 
-.caret{
-  color:#e8491d;
-  
-}
-#on:hover,#one:hover{
-color:#e8491d;
+.navbar .navbar-nav  li.open  a:hover,
+.navbar .navbar-nav li.open  a:focus {
+  background-color: black;
+  color: white;
 }
 
-.navbar-default{
- border-bottom:2px solid #e8491d;
+.active,#on1{
+	color:white;
 }
-.dropdown-menu li a:hover{
-	background-color:#35424a;
-	font-size:15px;
-}
-#uni{
-	background-color:#35424a;
+
 }

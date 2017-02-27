@@ -1,0 +1,170 @@
+@import "header.css";
+@import "section.css";
+#custom{
+    padding-top:0;
+    margin:0;
+    background-image: url("E:/sample images/backpack7.jpg");
+    background-size:100% 100%;
+	background-repeat: no-repeat;
+	padding-bottom:500px;
+	
+  }
+  #cust{
+      position:absolute;
+      z-index:2;
+      margin:0;
+      width:50%;
+      background-color:black;
+      opacity:0.6;
+      height:503px;
+      color:white;
+      padding:60px 0 0 120px;
+      text-transform:uppercase;
+      font-weight:bold;
+      text-decoration:underline;
+      font-family: 'Arial Narrow';
+      font-size:40px;
+  }
+  #font,#font1{
+     margin:0;
+     }
+   #cust2{
+      position:relative;
+      opacity:0.7;
+      color:white;
+      font-size:20px;
+      text-align:center;
+      font-family:cursive;
+      background-color:grey;
+      padding:30px 0 30px 0 ;
+      margin:0;
+   }
+   #custom > p{
+      margin:0;
+     position:absolute;
+     z-index:2;
+     text-transform:lowercase;
+     padding:100px 0px 0px 50px;
+     opacity:0.8;
+      font-family: italic;
+     font-size:25px;
+     color:white;
+      
+   }
+    footer{
+     background-color:black;
+   }
+   #mail>h1{
+      position:relative;
+      color:white;
+      
+      opacity:0.8;
+      margin:10%;
+      margin-top:15%;
+      text-align:center;
+      text-transform:uppercase;
+      font-size:45px;
+      font-weight:bold;
+      padding:30px 0px 0px 0px;
+      font-weight:bold;
+   }
+   .text{
+   
+     font-size:20px;
+     color:white;
+      opacity:0.8;
+     }
+   .form-group{
+     
+     
+     border-radius:0;
+     
+   }
+   #email{
+   width:600px;
+   height:45px;
+   background-color:black;
+   color:white;
+   font-weight:bold;
+   fomt-family:cursive;
+    opacity:0.8;
+   }
+   .form-inline{
+     padding-bottom:150px;
+     
+   }
+   button[type="submit"]{
+      color:white;
+      background-color:black;
+      
+      height:45px;
+   }
+   #contact{
+     padding:100px;
+     background-color:grey;
+   }
+  
+   .container{
+   padding:0;
+   padding-top:10px;
+     padding-bottom:20px;
+     margin-top:20px;
+     margin-left:10%;
+     background-color:black;
+     width:50%;
+     float:left;
+     
+   }
+   .sting{
+   padding-top:10px;
+     padding-bottom:350px;
+     margin-top:20px;
+  
+    background-color:black;
+   }
+  .group1{
+   margin-bottom:0;
+   
+   padding-left:0;
+  }
+  #name{
+     width:300px;
+   height:45px;
+   font-size:17px;
+   
+   text-transform:capitalize;
+  }
+  #message{
+   font-size:17px;
+   white-space:pre-line;
+   text-transform:capitalize;
+  }
+  #con1,#con2{
+  color:white;
+  }
+  #con1{
+   font-family:'Arial Narrow';
+   letter-spacing:4px;
+  
+   text-transform:uppercase;
+   font-size:55px;
+   font-weight:bold;
+   opacity:0.9;
+  }
+  #con2{
+    font-size:20px;
+    opacity:0.7;
+  }
+  #ref{
+    float:right;
+    font-size:25px;
+    color:white;
+  }
+  .form-group.email{
+     position: relative;
+    
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+    
+  }

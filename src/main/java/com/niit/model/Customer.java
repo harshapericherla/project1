@@ -1,5 +1,6 @@
 package com.niit.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,18 +20,19 @@ private String lastname;
 private String email;
 private String phonenumber;
 
-@OneToOne
+@OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="users_id")
 private Users users;
 
-@OneToOne
+@OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="billingaddress_id")
 private BillingAddress  billingAddress;
 
-@OneToOne
+@OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="shippingaddress_id")
 private ShippingAddress shippingAddress;
-@OneToOne
+
+@OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="cart_id")
 private Cart cart;
 

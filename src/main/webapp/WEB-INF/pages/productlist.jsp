@@ -4,8 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>List of Products</title>
-<c:url var="style" value="/resources/css/header.css"></c:url>
-<link rel="stylesheet" href="${style}"/> 
+
 <c:url var="style" value="/resources/css/productList.css"></c:url>
 <link rel="stylesheet" href="${style}"/>
 </head>
@@ -20,7 +19,7 @@ $(document).ready(function(){
 });
 </script>
 
-<body>
+<body class="back">
 
    <div class="container">
    

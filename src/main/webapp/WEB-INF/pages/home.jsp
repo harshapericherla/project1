@@ -8,7 +8,7 @@
 <title>Home</title>
 </head>
 <body>
-   Under construction
+   <%@ include file="section.jsp" %>
 </body>
 </html>
 <%@ include file="footer.jsp"%>
