@@ -69,6 +69,9 @@
                </ul>
     </li>
     <li><a href="<c:url value="/all/registrationForm"></c:url>"><span class="on">Register</span></a></li>
+    
+     <c:url var="login" value="/login"></c:url>
+     <li><a  href="${login}"><span class="on">Login</span></a></li>
   </ul>
   
    </div>

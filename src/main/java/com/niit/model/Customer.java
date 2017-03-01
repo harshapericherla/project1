@@ -7,6 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Customer {
@@ -15,21 +21,33 @@ public class Customer {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 private int id;
 
+@NotEmpty(message="First Name must be Entered")
 private String firstname;
+
+@NotEmpty(message="Last Name must be Entered")
 private String lastname;
+
+@NotEmpty(message="please enter the email")
+@Email(message="please enter a valid email address")
 private String email;
+
+@NotEmpty(message="please enter the phonenumber")
+@Length(max=10,min=10)
 private String phonenumber;
 
 @OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="users_id")
+@Valid
 private Users users;
 
 @OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="billingaddress_id")
+@Valid
 private BillingAddress  billingAddress;
 
 @OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="shippingaddress_id")
+@Valid
 private ShippingAddress shippingAddress;
 
 @OneToOne(cascade=CascadeType.ALL)

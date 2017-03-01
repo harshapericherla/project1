@@ -1,18 +1,26 @@
 package com.niit.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Users {
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
 private int id;
+
+@NotEmpty(message="please enter the username")
 private String username;
+
+@NotEmpty(message="please enter the password")
 private String password;
+
 private boolean enabled;
 @OneToOne(mappedBy="users")
 private Customer customer;

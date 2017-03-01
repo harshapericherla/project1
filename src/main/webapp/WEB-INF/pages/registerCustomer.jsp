@@ -27,52 +27,64 @@
    <div class="form-group">
      <form:label path="firstname">First Name</form:label>
      <form:input path="firstname" class="form-control"/>
+     <form:errors path="firstname"></form:errors>
    </div>
    
    
    <div class="form-group">
      <form:label path="lastname">Last Name</form:label>
      <form:input path="lastname"  class="form-control"/>
+      <form:errors path="lastname"></form:errors>
    </div>
    <div class="form-group">
      <form:label path="email">Email</form:label>
      <form:input path="email" class="form-control"/>
+      <form:errors path="email"></form:errors>
    </div>
    <div class="form-group">
      <form:label path="phonenumber">PhoneNumber</form:label>
      <form:input path="phonenumber" class="form-control"/>
+      <form:errors path="phonenumber"></form:errors>
    </div>
    <div class="form-group">
      <form:label path="users.username">UserName</form:label>
      <form:input path="users.username" class="form-control"/>
+      <c:out value="${duplicateUsername}"></c:out>
    </div>
    <div class="form-group">
      <form:label path="users.password">Password</form:label>
      <form:input path="users.password" type="password" class="form-control"/>
+      <form:errors path="users.password"></form:errors>
    </div>
    <div class="form-group">
      <form:label path="billingAddress.apartmentNumber">ApartmentNumber</form:label>
      <form:input path="billingAddress.apartmentNumber" class="form-control"/>
+      <form:errors path="billingAddress.apartmentNumber"></form:errors>
    </div>
    <div class="form-group">
      <form:label path="billingAddress.streetName">StreetName</form:label>
      <form:input path="billingAddress.streetName" class="form-control"/>
+      <form:errors path="billingAddress.streetName"></form:errors>
    </div>
    <div class="form-group">
      <form:label path="billingAddress.city">City</form:label>
      <form:input path="billingAddress.city" class="form-control"/>
+      <form:errors path="billingAddress.city"></form:errors>
    </div>
    <div class="form-group">
      <form:label path="billingAddress.state">State</form:label>
      <form:input path="billingAddress.state" class="form-control"/>
+      <form:errors path="billingAddress.state"></form:errors>
    </div>
    <div class="form-group">
      <form:label path="billingAddress.country">Country</form:label>
      <form:input path="billingAddress.country" class="form-control"/>
+      <form:errors path="billingAddress.country"></form:errors>
    </div>
    <div class="form-group">
      <form:label path="billingAddress.zipcode">Zipcode</form:label>
      <form:input path="billingAddress.zipcode" class="form-control"/>
+      <form:errors path="billingAddress.zipcode"></form:errors>
    </div>
    <div class="form-group">
      <form:label path="shippingAddress.apartmentNumber">ApartmentNumber</form:label>

@@ -16,7 +16,9 @@ public class CustomerDaoImpl implements CustomerDao {
 	public void saveCustomer(Customer customer) {
 		Session session = sessionFactory.openSession();
 		customer.getUsers().setEnabled(true);
+		
 		//Authorities
+		if(customer.getBillingAddress()!=null){
 		String username = customer.getUsers().getUsername();
 		String role = "ROLE_USER";
 		Authorities authorities = new Authorities();
@@ -24,11 +26,11 @@ public class CustomerDaoImpl implements CustomerDao {
 		authorities.setUsername(username);
 		authorities.setRole(role);
 		session.save(authorities);
+		}
 		//For Cart
 		Cart cart = new Cart();
 		customer.setCart(cart);
 		cart.setCustomer(customer);
-		
 		
 		session.save(customer);
 		session.flush();
