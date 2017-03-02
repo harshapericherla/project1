@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
@@ -46,12 +47,17 @@
      
      <li><a href="#aboutus"><span class="on">About</span></a></li>
      
-    
+     <!-- when user logged in -->
+    <c:if test="${pageContext.request.userPrincipal.name!=null }">
       <li class="dropdown">
         <a id="uni" href="" class="dropdown-toggle" data-toggle="dropdown"><span class="on">Shop</span><b class="caret"></b></a>  
-               <ul class="dropdown-menu">        
+               <ul class="dropdown-menu">
+        
+       <!-- when user is admin show the add products -->       
+      <security:authorize access="hasRole('ROLE_ADMIN')">                
      <c:url var="productform" value="/admin/product/productform"></c:url>
      <li><a class="two" href="${productform }"><span class="one">Add New Product</span></a></li>
+     </security:authorize>
      
      <c:url var="allproducts" value="/all/product/getallproducts"></c:url>
      <li><a href="${allproducts }"><span class="one">Browse products</span></a></li>
@@ -68,10 +74,22 @@
                </c:forEach>
                </ul>
     </li>
+    <li><a href=""><span class="on">welcome ${pageContext.request.userPrincipal.name}</span></a></li>
+    </c:if>
+    
+    <!-- when user not logged in -->
+    <c:if test="${pageContext.request.userPrincipal.name==null }">
     <li><a href="<c:url value="/all/registrationForm"></c:url>"><span class="on">Register</span></a></li>
     
      <c:url var="login" value="/login"></c:url>
      <li><a  href="${login}"><span class="on">Login</span></a></li>
+     </c:if>
+     
+    <!-- when user want to log out -->
+     <c:if test="${pageContext.request.userPrincipal.name!=null }">
+     <li><a href="<c:url value="/j_spring_security_logout"></c:url>"><span class="on">logout</span></a></li>
+     </c:if>
+  
   </ul>
   
    </div>

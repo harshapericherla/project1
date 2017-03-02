@@ -21,7 +21,7 @@
 <div class="container-wrapper">
 <div class="container">
  <c:url var="url" value="/all/registerCustomer"></c:url>
- 
+
  <form:form action="${url}" modelAttribute="customer">
     
    <div class="form-group">

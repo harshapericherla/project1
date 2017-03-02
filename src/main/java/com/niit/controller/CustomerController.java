@@ -33,6 +33,7 @@ public class CustomerController {
 		  model.addAttribute("duplicateUsername","username already exists please enter different username");
 		  return "registerCustomer"; 
 	  }
-	  return "home";
+	  model.addAttribute("registersuccess","registration was sucessful...please login with new username and password");
+	  return "login";
   }
 }
