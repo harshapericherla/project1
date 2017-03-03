@@ -30,9 +30,9 @@ $(document).ready(function(){
             <th>Product Name</th>
             <th>Description</th>
             <th>Category Details</th>
-            <security:authorize access="hasRole('ROLE_ADMIN')">  
-            <th>View/Delete/Edit</th>
-            </security:authorize>
+             
+            <th>View<security:authorize access="hasRole('ROLE_ADMIN')"> /Delete/Edit</security:authorize></th>
+           
          </tr>
         </thead>
         <c:forEach var="p" items="${products}" >
@@ -44,10 +44,11 @@ $(document).ready(function(){
             <td>${p.name}</td>
             <td>${p.description}</td>
             <td>${p.category.categorydetails}</td>
-            <security:authorize access="hasRole('ROLE_ADMIN')">  
+             
            <td>
            <c:url var="url" value="/all/product/viewproduct/${p.id}"></c:url>
            <a href="${ url}"><span class="glyphicon glyphicon-info-sign"></span></a>
+           <security:authorize access="hasRole('ROLE_ADMIN')"> 
            <c:url var="delete" value="/admin/product/deleteproduct/${p.id}"></c:url>
            <a href="${delete}"><span class="glyphicon glyphicon-remove"></span></a>
            <c:url var="edit" value="/admin/product/editform/${p.id}"></c:url>

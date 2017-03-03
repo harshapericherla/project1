@@ -14,6 +14,7 @@ public class CustomerServiceImpl implements CustomerService{
 	    customerDao.saveCustomer(customer);
 		
 	}
-
-	
+   public Customer getCustomerByUsername(String username){
+		 return customerDao.getCustomerByUsername(username);
+	 }
 }

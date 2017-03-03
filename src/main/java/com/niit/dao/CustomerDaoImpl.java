@@ -1,5 +1,6 @@
 package com.niit.dao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.niit.model.Authorities;
 import com.niit.model.Cart;
 import com.niit.model.Customer;
+import com.niit.model.Users;
 @Repository
 public class CustomerDaoImpl implements CustomerDao {
     @Autowired
@@ -36,6 +38,16 @@ public class CustomerDaoImpl implements CustomerDao {
 		session.flush();
 		session.close();
 		
+	}
+	@Override
+	public Customer getCustomerByUsername(String username) {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from Users where username=?");
+		query.setString(0, username);
+		Users users = (Users)query.uniqueResult();
+		Customer customer = users.getCustomer();
+		session.close();
+		return customer;
 	}
 
 }

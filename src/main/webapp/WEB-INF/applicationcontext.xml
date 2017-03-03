@@ -32,6 +32,7 @@
                 <value>com.niit.model.ShippingAddress</value>
                 <value>com.niit.model.BillingAddress</value>
                 <value>com.niit.model.Cart</value>
+                <value>com.niit.model.CartItem</value>
             </list>  
         </property> 
   <property name="hibernateProperties">
