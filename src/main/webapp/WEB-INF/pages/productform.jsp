@@ -70,7 +70,7 @@
  
 <div class="form-group">
 <label for="image">Image</label>
-<form:input path="image" type="file"/>
+<input name="fileUpload" type="file"/>
 </div>
 
   <input type="submit" value="Add Product" class="btn btn-default">

@@ -1,5 +1,7 @@
 package com.niit.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +20,17 @@ import com.niit.service.Productservice;
 public class HomeController {
 	@Autowired
 	private Categoryservice categoryservice;
+	@Autowired
+	private Productservice productservice;	
+	
   public HomeController(){
 	  System.out.println("I am running");
   }
   @RequestMapping("/home")
-  public String home(HttpSession session){
+  public String home(HttpSession session,Model model){
 	  session.setAttribute("categories", categoryservice.getcategories());
+	  List<Product> products = productservice.getProductByDiscount();
+	  model.addAttribute("discount",products);
 	  return "home";
   }
   @RequestMapping("/aboutus")

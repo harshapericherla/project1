@@ -1,0 +1,104 @@
+@CHARSET "ISO-8859-1";
+@import "header.css";
+#dark{
+  background-color:black;
+}
+#slider{
+  margin:70px 105px 0 105px;
+  
+  height:400px;
+   overflow:hidden;
+   
+  }
+  #slider>.slides{
+     display:block;
+     width:6000px;
+     height:300px;
+     margin:0px;
+     padding:0;
+      
+  }
+  #slider .slide{
+   float:left;
+   list-style-type:none;
+   width:300px;
+   height:300px;
+   margin:10px;
+    border:1px solid black;
+  }
+  
+  #slider img{
+     height:300px;
+     width:300px;
+     padding:20px;
+      
+  }
+  .glyphicon-chevron-left{
+ position:relative;
+  padding-top:15%;
+    float:left;
+   cursor:pointer;
+   color:white;
+   font-size:55px;
+   opacity:0.8;
+ }
+ .clickright{
+ position:relative;
+   padding-top:15%;
+  float:right;
+  
+   cursor:pointer;
+   color:white;
+   font-size:55px;
+   opacity:0.8;
+ }
+ @media screen and (max-width: 990px) and (min-width: 700px){
+ .glyphicon-chevron-left{
+ position:relative;
+  padding-top:20%;
+    float:left;
+   cursor:pointer;
+   color:white;
+   font-size:55px;
+   opacity:0.8;
+ }
+ .clickright{
+ position:relative;
+   padding-top:20%;
+  float:right;
+  
+   cursor:pointer;
+   color:white;
+   font-size:55px;
+   opacity:0.8;
+ }
+}
+.glyphicon-chevron-left:hover,.clickright:hover{
+	opacity:1.0;
+	font-size:65px;
+}
+
+ #slider img:hover{
+    padding:10px;
+ }
+ #product_name{
+
+ color:white;
+ font-size:25px;
+ text-transform:uppercase;
+ padding-left:15px;
+ font-family : "Comic Sans MS", cursive, sans-serif;
+ }
+ #sale{
+ color:white;
+ text-align:center;
+ padding-top:20px;
+ font-size:55px;
+  font-family: "Arial Narrow";
+  font-weight:bold;
+ }
+ #saleinner{
+ font-size:28px;
+ text-transform:uppercase;
+  font-family: "Arial Narrow";
+ }

@@ -5,10 +5,14 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Blob;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
@@ -24,8 +28,10 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import com.niit.service.*;
 
@@ -49,31 +55,35 @@ public class Productcontroller {
    return new ModelAndView("productform","categories",categoryservice.getcategories());
    }
    
-  @RequestMapping("/admin/product/addproduct")
-  public String saveproduct(@Valid @ModelAttribute(value="product") Product product,BindingResult result,Model model){
+  @RequestMapping(value="/admin/product/addproduct",method = RequestMethod.POST)
+  public String saveproduct(@Valid @ModelAttribute(value="product") Product product,BindingResult result,Model model,HttpServletRequest request,@RequestParam CommonsMultipartFile[] fileUpload){
 	  if(result.hasErrors()){
 		  model.addAttribute("categories",categoryservice.getcategories());
 		  return "productform";
 	  }
-
+     
+	  
+	  for (CommonsMultipartFile aFile : fileUpload){
+          
+          System.out.println("Saving file: " + aFile.getOriginalFilename());
+           product.setPicture(aFile.getBytes());
+	  
+	  }
 	Product produp = productservice.saveproduct(product);
-	MultipartFile prodImage = product.getImage();
-	if(!prodImage.isEmpty()){
-		Path paths = Paths.get("C:/Users/Harsha/workspace/projectone/src/main/webapp/WEB-INF/resources/images/" + product.getId()+".png");
-	    try {
-			prodImage.transferTo(new File(paths.toString()));
-		} catch (IllegalStateException e) {
-		    e.printStackTrace();
-		} catch (IOException e) {
-		    e.printStackTrace();
-		}
-	}
-	
 	  return "redirect:/all/product/getallproducts";
+  }
+  @RequestMapping("/all/product/image/{id}")
+  public void imageprocess(@PathVariable int id,HttpServletRequest request,HttpServletResponse response) throws IOException{
+	  byte[] image = productservice.loadImage(id);
+	  response.setContentType("image/jpeg");
+	  ServletOutputStream outputStream = response.getOutputStream();
+	  outputStream.write(image);
+	  outputStream.close();
   }
   @RequestMapping("/all/product/getallproducts")
   public String getallproducts(Model model){
 	  List<Product> products = productservice.getallproducts();
+	  
 	  model.addAttribute("products",products);
 	  return "productlist";   
 	}
@@ -102,6 +112,7 @@ public class Productcontroller {
  @RequestMapping("/admin/product/editProduct")
  public String editProductDetails( @ModelAttribute("product1") Product product,BindingResult result){
 		
+	
 		productservice.updateProduct(product);
 		return "redirect:/all/product/getallproducts";
 	}

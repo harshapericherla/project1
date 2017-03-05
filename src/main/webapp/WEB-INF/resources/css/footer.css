@@ -74,12 +74,7 @@
      color:white;
       opacity:0.8;
      }
-   .form-group{
-     
-     
-     border-radius:0;
-     
-   }
+   
    #email{
    width:600px;
    height:45px;
@@ -162,9 +157,15 @@
   }
   .form-group.email{
      position: relative;
-    
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
-    
-  }
+     border-radius:0; 
+    left: 23%;
+    }
+  @media screen and (max-width: 990px) and (min-width: 700px){
+  .form-group.email{
+     position: relative;
+     border-radius:0; 
+    left: 15%;
+    }
+
+  
+  

@@ -8,7 +8,9 @@
 <title>Home</title>
 </head>
 <body>
+   
    <%@ include file="section.jsp" %>
+   <%@ include file="imagedisplay.jsp" %>
 </body>
 </html>
 <%@ include file="footer.jsp"%>
