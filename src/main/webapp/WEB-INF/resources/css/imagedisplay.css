@@ -102,3 +102,6 @@
  text-transform:uppercase;
   font-family: "Arial Narrow";
  }
+ .slide a{
+  text-decoration:none;
+ }

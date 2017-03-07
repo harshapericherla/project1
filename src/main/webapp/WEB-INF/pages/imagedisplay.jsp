@@ -22,8 +22,8 @@
  <ul class="slides">
         <c:forEach var="p" items="${discount}" >
           <c:url var="sr" value="/all/product/image/${p.id}"></c:url>
-            
-           <li class="slide"><img src="${sr }"/><span id="product_name">${p.name }</span></li>
+          <c:url var="url" value="/all/product/viewproduct/${p.id}"></c:url>
+           <li class="slide"><a href="${url }"><img src="${sr }"/><span id="product_name">${p.name }</span></a></li>
            
          </c:forEach>
   </ul>

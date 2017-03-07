@@ -1,5 +1,7 @@
 package com.niit.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,7 @@ import javax.persistence.Id;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class Authorities {
+public class Authorities implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 private int id;

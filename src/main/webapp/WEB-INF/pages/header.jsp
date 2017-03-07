@@ -20,8 +20,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   
+  <!-- Angular Js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  
   <!-- Local Files -->
-  <c:url var="script" value="resources/js/header.js"></c:url>
+  <c:url var="script" value="/resources/js/header.js"></c:url>
   <script src="${script}"></script>
   
   <c:url var="style" value="/resources/css/header.css"></c:url>
@@ -74,6 +77,12 @@
                </c:forEach>
                </ul>
     </li>
+    
+    <security:authorize access="hasRole('ROLE_USER')">
+    <c:url var="cart" value="/cart/getCartId"></c:url>
+    <li><a href="${cart }"><span class="on">Cart</span></a></li>
+    </security:authorize>
+    
     <li><a href=""><span class="on">welcome ${pageContext.request.userPrincipal.name}</span></a></li>
     </c:if>
     

@@ -1,6 +1,7 @@
 package com.niit.model;
 
 import java.io.File;
+import java.io.Serializable;
 import java.sql.Blob;
 import java.util.Date;
 
@@ -25,7 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name="product")
-public class Product {
+public class Product implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

@@ -10,7 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registration Form</title>
- <c:url var="script" value="resources/js/header.js"></c:url>
+ <c:url var="script" value="/resources/js/header.js"></c:url>
   <script src="${script}"></script>
   
   <c:url var="style" value="/resources/css/header.css"></c:url>
@@ -20,7 +20,7 @@
 <body>
 <div class="container-wrapper">
 <div class="container">
- <c:url var="url" value="/all/registerCustomer"></c:url>
+ <c:url var="url" value="all/registerCustomer"></c:url>
 
  <form:form action="${url}" modelAttribute="customer">
     

@@ -110,12 +110,25 @@ public class Productcontroller {
  }
  
  @RequestMapping("/admin/product/editProduct")
- public String editProductDetails( @ModelAttribute("product1") Product product,BindingResult result){
+ public String editProductDetails( @ModelAttribute("product1") Product product,BindingResult result,Model model,HttpServletRequest request,@RequestParam CommonsMultipartFile[] fileUpload){
 		
+	  if(result.hasErrors()){
+		  model.addAttribute("categories",categoryservice.getcategories());
+		  return "editform";
+	  }
+     
+	  
+	  for (CommonsMultipartFile aFile : fileUpload){
+          
+          System.out.println("Saving file: " + aFile.getOriginalFilename());
+           product.setPicture(aFile.getBytes());
+	  
+	  }
 	
 		productservice.updateProduct(product);
 		return "redirect:/all/product/getallproducts";
 	}
+ 
 @RequestMapping("/all/product/productsByCategory")
  public String getProductByCategory(@RequestParam(name="searchCondition")String searchCondition,Model model){
 	List<Product> products = productservice.getallproducts();

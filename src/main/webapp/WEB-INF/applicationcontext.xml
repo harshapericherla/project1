@@ -53,14 +53,18 @@
  
     <security:http>
        <security:csrf disabled="true"/>
+       <security:intercept-url pattern=" /cart/addCartItem*/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>  
        <security:intercept-url pattern="/index*/**" access="permitAll"/>
        <security:intercept-url pattern="/home" access="permitAll"/>
        <security:intercept-url pattern="/login" access="permitAll"/>
+       
        <security:intercept-url pattern="/all/product/image*/**" access="permitAll"/>
         <security:intercept-url pattern="/all/regis*" access="permitAll"/>
-       <security:intercept-url pattern="/all/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>   
-       <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+         <security:intercept-url pattern="/all/product/viewproduct*/**" access="permitAll"/>
+       <security:intercept-url pattern="/all/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/> 
        
+       <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+      
        
        <security:form-login login-page="/login"
        authentication-failure-url="/login?error"

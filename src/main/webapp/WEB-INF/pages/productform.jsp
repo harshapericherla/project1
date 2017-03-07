@@ -35,7 +35,7 @@
    <form:hidden path="id"/>
   </div>
   <div class="form-group">
-   <label for="name">product name</label>
+   <label for="name">Product name</label>
    <form:input path="name" class="form-control"/>
    <form:errors path="name" cssStyle="color:#ff0000"></form:errors>
   </div>
@@ -50,7 +50,7 @@
    <form:errors path="price" cssStyle="color:#ff0000"></form:errors>
   </div>
   <div class="form-group">
-   <label for="quantity">Qunatity</label>
+   <label for="quantity">Quantity</label>
    <form:input path="quantity" class="form-control"/>
    
   </div>

@@ -39,17 +39,3 @@ table {
     margin: 1em 0;
     clear: both;
 }
-.fixed-nav-bar{
-	
-    height:85px;
-	width:100%;
-	top:0;
-	left:0;
-	z-index:9999;
-	padding-top:15px;
-    padding-bottom:10px;
-    opacity:0.9;
-   
-    background-color:red;
-
-}
