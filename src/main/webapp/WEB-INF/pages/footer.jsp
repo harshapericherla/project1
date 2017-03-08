@@ -13,7 +13,8 @@
 </head>
 <body class="front">
   <footer>
- <div id="custom">
+   <c:url var="im1" value="/resources/images/backpack3.jpg"></c:url>
+ <div id="custom" style="background-image:url('${im1}')">
   <a id="aboutus"></a>
   
   <h1 id="cust"><span class="font">about us</span></h1>

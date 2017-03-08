@@ -3,10 +3,11 @@
 #custom{
     padding-top:0;
     margin:0;
-    background-image: url("E:/sample images/backpack7.jpg");
+    
     background-size:100% 100%;
 	background-repeat: no-repeat;
 	padding-bottom:500px;
+	overflow:hidden;
 	
   }
   #cust{
@@ -16,7 +17,7 @@
       width:50%;
       background-color:black;
       opacity:0.6;
-      height:503px;
+      height:500px;
       color:white;
       padding:60px 0 0 120px;
       text-transform:uppercase;

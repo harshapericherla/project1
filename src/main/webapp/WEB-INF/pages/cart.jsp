@@ -14,26 +14,44 @@
     #cart{
       margin:150px;
     }
+    .ance *{
+     padding:20px;
+     margin:10px;
+    }
   </style>
 </head>
 <body>
 <div id="cart">
  <div ng-app="app" ng-controller="ProductController">
    <div ng-init="getCart(${cartId})">
-      <table>
+   <a href="" class="btn btn-success pull-right">Check Out</a>
+  
+      <table class="ance">
         <thead>
         <tr>
+          <th>Product</th>
           <th>Name</th>
           <th>Quantity</th>
           <th>Total Price</th>
+          <th>Remove</th>
         </tr>
         </thead>
+        <a href="" class="btn btn-danger" pull-left ng-click="clearCart()">ClearCart</a>
        <tr ng-repeat="ca in cart.cartItems">
+       <td>
+       <c:url var="sr" value="/all/product/image/{{ca.product.id}}"></c:url>
+  <img src="${sr }" height="150px" width="150px"/>
+       
+       </td>
          <td>{{ca.product.name}}</td>
          <td>{{ca.quantity}}</td>
          <td>{{ca.totalPrice}}</td>
+         <td><a href="" class="btn btn-danger" pull-left ng-click="removeFromCart(ca.id)">Remove
+         </a></td>
        </tr>
+       
       </table>
+      Total Price: {{calculateGrandTotal()}}
    </div>
 <c:url var="script7" value="/resources/js/controller.js"></c:url>
 <script src="${script7}"></script> 

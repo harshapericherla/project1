@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,11 +25,22 @@ public class HomeController {
 	@Autowired
 	private Productservice productservice;	
 	
+	
+	
+	
   public HomeController(){
 	  System.out.println("I am running");
   }
   @RequestMapping("/home")
   public String home(HttpSession session,Model model){
+	  
+	 System.out.println("-------"+CartItemController.listproduct.size());
+	 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	 String name = auth.getName();
+	 
+	 if(CartItemController.listproduct.size()!=0 && name!="anonymousUser"){
+		 return "redirect:/updatecart";
+	 }
 	  session.setAttribute("categories", categoryservice.getcategories());
 	  List<Product> products = productservice.getProductByDiscount();
 	  model.addAttribute("discount",products);

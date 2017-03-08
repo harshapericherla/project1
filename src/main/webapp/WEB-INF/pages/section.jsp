@@ -15,7 +15,8 @@
 </head>
 
 <body class="front">
-  <section id="one">
+  <c:url var="im" value="/resources/images/backpack5.jpg"></c:url>
+  <section id="one" style="background-image:url('${im}')">
   <h1>Plan your adventure</h1>
   <h2><a href="">Shop now</a></h2>
   </section>

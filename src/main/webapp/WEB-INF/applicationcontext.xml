@@ -53,7 +53,7 @@
  
     <security:http>
        <security:csrf disabled="true"/>
-       <security:intercept-url pattern=" /cart/addCartItem*/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>  
+        
        <security:intercept-url pattern="/index*/**" access="permitAll"/>
        <security:intercept-url pattern="/home" access="permitAll"/>
        <security:intercept-url pattern="/login" access="permitAll"/>

@@ -41,6 +41,7 @@
 </tr>
 <tr>
  <td><a href="#" ng-click="addToCart(${product.id })"><span class="glyphicon glyphicon-shopping-cart"></span></a></td> 
+ 
 </tr>
 </table>
 </div>
