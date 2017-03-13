@@ -61,4 +61,7 @@ $(document).ready(function(){
 	if(location=="http://localhost:8080/projectone/login?logout"){
 		$('a[href*="/login"] .on').css('color','white');
 	}
+	 
+	
+	
 });

@@ -15,13 +15,10 @@
 </head>
 <body>
 <div id="cart">
- <div ng-app="app" ng-controller="ProductController">
-   <div ng-init="getCart(${cartId})">
-   
-    <button class="left" ng-click="clearCart()">ClearCart</button>
-   
-   <c:url value="/order/${cartId}" var="check"></c:url>
-   <a href="${check }" class="right">CheckOut</a>
+ <div>
+   <div>
+   <a href="<c:url value="/beforeCart/removeAll"></c:url>" class="left">ClearCart</a>
+   <a href="<c:url value="/before"></c:url>" class="right">CheckOut</a>
   
       <table class="ance">
         <thead>
@@ -33,30 +30,31 @@
           <th class="remove">Remove</th>
         </tr>
         </thead>
-       
-       <tr ng-repeat="ca in cart.cartItems">
+        
+        <c:forEach var="p" items="${listproduct}" >
+       <tr>
        <td>
-       <c:url var="sr" value="/all/product/image/{{ca.product.id}}"></c:url>
+       <c:url var="sr" value="/all/product/image/${p.id}"></c:url>
   <img src="${sr }" height="150px" width="150px"/>
        
        </td>
-         <td id="item">{{ca.product.name}}</td>
-         <td class="quan">{{ca.quantity}}</td>
-         <td class="total">{{ca.totalPrice}}</td>
-         <td class="remove"><a href="" class="btn btn-danger" pull-left ng-click="removeFromCart(ca.id)">Remove
+         <td id="item">${p.name}</td>
+         <td class="quan">${p.quantity}</td>
+         <td class="total">INR ${p.price}</td>
+         <td class="remove"><a href="<c:url value="/beforeCart/remove/${p.id}"></c:url>" class="btn btn-danger" pull-left>Remove
          </a></td>
        </tr>
-       
+       </c:forEach>
       </table>
-   <div id="totalprice"> 
-      <span id="sub">SubTotal: INR {{calculateGrandTotal()}}</span>
-      </div>
-      <div id="content">
-      <p>Discount,shipping and tax will be calculated in checkout.</p>
+    
+     <div id="totalprice"> 
+     <span id="sub">SubTotal: INR ${totalPrice }</span>
+     </div>
+     <div id="content">
+       <p>Discount,shipping and tax will be calculated in checkout.</p>
      </div>
    </div>
-<c:url var="script7" value="/resources/js/header.js"></c:url>
-<script src="${script7}"></script> 
+
  </div>
 </div>
 </body>

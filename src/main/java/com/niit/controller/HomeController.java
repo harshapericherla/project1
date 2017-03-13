@@ -38,7 +38,7 @@ public class HomeController {
 	 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	 String name = auth.getName();
 	 
-	 if(CartItemController.listproduct.size()!=0 && name!="anonymousUser"){
+	 if(CartItemController.norepeat.size()!=0 && name!="anonymousUser"){
 		 return "redirect:/updatecart";
 	 }
 	  session.setAttribute("categories", categoryservice.getcategories());

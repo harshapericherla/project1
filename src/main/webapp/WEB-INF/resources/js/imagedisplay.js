@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	var width = 300;
-	var animationSpeed =500;
+	var animationSpeed =250;
 	var currentSlide = 1;
 	
 	var $slider = $("#slider");
