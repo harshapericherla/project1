@@ -55,7 +55,7 @@
       <p>Discount,shipping and tax will be calculated in checkout.</p>
      </div>
    </div>
-<c:url var="script7" value="/resources/js/header.js"></c:url>
+<c:url var="script7" value="/resources/js/controller.js"></c:url>
 <script src="${script7}"></script> 
  </div>
 </div>

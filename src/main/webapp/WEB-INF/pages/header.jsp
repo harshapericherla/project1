@@ -87,7 +87,7 @@
     <security:authorize access="hasRole('ROLE_USER')">
     <c:url var="cart" value="/cart/getCartId"></c:url>
        
-    <li><a href="${cart }" ng-click="update()"><span class="on">Cart</span></a></li>
+    <li><a href="${cart }" ><span class="on">Cart</span></a></li>
     
     </security:authorize>
     
@@ -118,6 +118,5 @@
   </nav>
  </header>
 </body>
-<c:url var="script7" value="/resources/js/controller.js"></c:url>
-<script src="${script7}"></script> 
+
 </html>
