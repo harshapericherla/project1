@@ -1,0 +1,74 @@
+body{
+	background-color:black;
+}
+ul{
+	color:white;
+	list-style:none;
+ }
+.lic{
+	display:inline-block;
+}
+.headings{
+	margin-left:8%;
+	font-size:20px;
+}
+#viewimage,button{
+	text-align:center;
+}
+#price,#name,button,.headings{
+	font-weight:bold;
+}
+button{
+	 background-color:white;
+}
+.matter,.headings{
+	opacity:0.8;
+}
+#name,button,.headings{
+	text-transform:uppercase;
+}
+#name,button,.headings{
+	font-family:Arial Narrow;
+}
+#name{
+	font-size:30px;
+	margin-left:8%;
+}
+#price{
+	float:right;
+	margin-right:8%;
+	font-size:25px;
+}
+.matter{
+	width:50%;
+	margin:2% 0 0 8%;
+	text-align:justify;
+    }
+button{
+float:right;
+ color:black;
+ margin:10px 8% 100px 0px;
+ padding:1% 8% 1% 8%;
+ border:1px solid white;
+ font-size:20px;
+}
+.fa.fa-facebook-f,.fa.fa-twitter,.fa.fa-google-plus{
+	float:right;
+	margin:8% -2% 0 0;
+	font-size:20px;
+	cursor:pointer;
+}
+.fa.fa-facebook-f{
+	color:#6495ED;
+}
+.fa.fa-twitter{
+	margin-right:-8%;
+	color:#00FFFF;
+}
+.fa.fa-google-plus{
+	margin-right:-14%;
+	color:	#FF7F50;
+}
+.magnify{
+	 
+}

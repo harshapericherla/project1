@@ -1,0 +1,81 @@
+body{
+	margin:150px;
+	background-color:black;
+	color:white;
+}
+
+table{
+	clear:left;
+	clear:right;
+	margin-top:3%;
+	width:100%;
+}
+.left,.right,#totalprice,.btn.btn-danger{
+	font-family:'Arial Narrow';
+}
+.left,.right,#totalprice,.btn.btn-danger,td{
+	font-weight:bold;
+}
+.left,.right,.btn.btn-danger{
+	background-color:white;
+	color:black;
+	border:1px solid white;
+	padding:2%;
+	text-align:center;
+	position:relative;
+}
+.left,.right,.btn.btn-danger{
+	opacity:0.9;
+}
+.left{
+	left:0;
+	font-size:15px;
+}
+.right{
+	left:70%;
+	padding-left:8%;
+	padding-right:8%;
+	font-size:24px;
+}
+#totalprice{
+	float:right;
+	font-size:20px;
+	
+}
+.btn.btn-danger{
+	padding:10px;
+	border-radius:0;
+}
+.left,.right,.btn.btn-danger,td{
+	text-transform:uppercase;
+	text-decoration:none;
+}
+.left:hover,.right:hover{
+	text-decoration:none;
+	color:black;
+}
+#content{
+	margin-top:4%;
+	margin-left:57.5%;
+	font-size:16px;
+	font-weight:500;
+}
+#sub,#content{
+	font-style:oblique;
+}
+ @media screen and (max-width: 990px) and (min-width: 700px){
+#item{
+	font-size:14px;
+}
+#content{
+	margin-top:5%;
+	margin-left:41%;
+	
+}
+.right{
+	left:60%;
+	padding-left:8%;
+	padding-right:8%;
+	font-size:24px;
+}
+}
