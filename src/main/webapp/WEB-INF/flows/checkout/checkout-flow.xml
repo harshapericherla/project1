@@ -1,55 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--  
-<flow xmlns="http://www.springframework.org/schema/webflow"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation=" http://www.springframework.org/schema/webflow
-      http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
-  
-  <var name="order" class="com.niit.model.CustomerOrder"/>
-  
-  
-  
-  <action-state>
-  <validate expression="cartDaoImpl.validate(requestParameters.cartId)" result="order.cart"></validate>
-  <transition to="invalidCartWarning" on-exception="java.io.IOException"></transition>
-  <transition to="collectCustomerDetails"></transition>
-  </action-state>
- 
-  <view-state id="collectCustomerDetails" model="order">
-     <transition on="collectedCustomerInfo" to="collectShippingDetails"></transition>
-     <transition on="cancel" to="cancelCheckOut"/>
-  </view-state>
-  
-  <view-state id="collectShippingDetails" model="order">
-   _eventId_backToCollectCustomerDetails [back]
-  <transition on="backToCollectCustomerDetails" to="collectCustomerDetails"></transition>
- 
-  _eventId_collectedShippingDetails [next]
-  <transition on="collectedShippingDetails" to="purchaseSummary"></transition>
-  
-   _eventId_cancel [cancel]
-  <tarnsition on="cancel" to="cancelCheckOut"></tarnsition>
-  </view-state>
-  
-  <view-state id="purchaseSummary" model="order">
-  <transition></transition>
-   <transition></transition>
-    <transition></transition>
-  </view-state>
-  
-  
-  
-  <view-state id="invalidCartWarning">
-  <transition to="endState"></transition>
-  </view-state>
-  
-  <action-state id="cancelCheckOut">
-  
-  </action-state> 
- 
-  <end-state id="endState"></end-state> 
-</flow>
---> 
+
  
 <flow xmlns="http://www.springframework.org/schema/webflow"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -59,35 +9,57 @@
        <var name="order" class="com.niit.model.CustomerOrder"/>
       
       
-      <action-state id="invalid">
+      <action-state id="validateCart">
       
        <evaluate expression="cartDaoImpl.validate(requestParameters.cartId)" result="order.cart"></evaluate>
-       <transition to="collectCustomerDetails"></transition>
-       <transition on-exception="java.io.IOException" to="invalidCartWarning"/> 
+       <transition to="collectCustomerInfo"></transition>
+       <transition on-exception="java.io.IOException" to="invalidCartWarning"></transition> 
       </action-state>
       
       <view-state id="invalidCartWarning">
+      <transition to="endState"></transition>
       </view-state>   
    
-     <view-state id="collectCustomerDetails" model="order">
-     <transition on="collectedCustomerInfo" to="collectShippingDetails"></transition>
+     <view-state id="collectCustomerInfo" model="order">
+     <transition on="customerInfoCollected" to="collectShippingDetail"></transition>
      <transition on="cancel" to="cancelCheckOut"/>
      </view-state>
+     
+     <view-state id="collectShippingDetail" model="order">
+       <transition on="backToCollectCustomerInfo" to="collectCustomerInfo"></transition>
+        <transition on="shippingDetailCollected" to="orderConfirmation"></transition>
+     </view-state>
       
-      <view-state id="cardpage" view="views/card.jsp" model="cart">
-      <transition on="cancel" to="paymentpage"></transition>
-      <transition on="continue" to="cardpayment"></transition>
+      <view-state id="orderConfirmation">
+        <transition on="backToCollectShippingDetail" to="collectShippingDetail"></transition>
+        <transition on="orderConfirmed" to="processOrder"></transition>
       </view-state>
-      
-       <action-state id="cardpayment">
-      <evaluate expression="checkoutHandler.cardPayment(cart)" />
-      <transition on="true" to="tqpage" />
-      <transition on="false" to="paymentpage"/>
+       
+      <action-state id="processOrder">
+          <evaluate expression="CustomerOrderDaoImpl.addCustomerOrder(order.cart)"></evaluate>
+          <transition to="clearCart"></transition>
       </action-state>
       
-        <view-state id="tqpage" view="views/tqpage.jsp"></view-state>
-   
-    
-                  
-      </flow>
+      <action-state id="clearCart">
+        <evaluate expression="CartItemDaoImpl.removeAllCartItems(cart)"></evaluate>
+        <transition to="thankCustomer"></transition>
+      </action-state>
+      
+      <view-state id="thankCustomer">
+         <transition to="endState"></transition>
+      </view-state>
+      
+      <action-state id="cancelPurchase">
+      <!-- <evaluate expression="CartItemDaoImpl.removeAllCartItems(cart)"></evaluate> -->
+      <transition to="cancelCheckOut"></transition>
+      </action-state>
+      
+      <end-state id="endState"></end-state>
+      
+      <end-state id="cancelCheckout" view="checkoutCancelled.jsp"></end-state>
+      
+      <global-transitions>
+       <transition on="cancel" to="cancelPurchase"></transition>
+      </global-transitions>
+   </flow>
  

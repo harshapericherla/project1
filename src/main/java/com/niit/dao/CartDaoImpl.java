@@ -25,25 +25,13 @@ public class CartDaoImpl implements CartDao{
 		return cart;
 	}
 	public Cart validate(int cartId) throws IOException{
-		Cart cart1=getCart(cartId);
-		System.out.println("cart -------------"+cart1);
-		System.out.println("cart -------------"+cart1.getCartItems());
-		if(cart1.getCartItems().size()==0){
-		System.out.println("------------------hello----------------------"+cartId);
+		Cart cart=getCart(cartId);
 		
-		throw new IOException();
+		if(cart.getCartItems().size()==0 || cart==null){
+	         throw new IOException();
 		}
 		else{
-		CustomerOrder order = new CustomerOrder();
-		order.setBillingAddress(cart1.getCustomer().getBillingAddress());
-		order.setShippingAddress(cart1.getCustomer().getShippingAddress());
-		order.setCart(cart1);
-	    order.setCustomer(cart1.getCustomer());
-		Session session = sessionFactory.openSession();
-		session.save(order);
-		session.flush();
-		session.close();
-		return cart1;
+		  return cart;
 		}
 	}
     
