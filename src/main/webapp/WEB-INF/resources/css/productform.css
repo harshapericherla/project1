@@ -1,0 +1,9 @@
+@import "register.css";
+input[type='file']{
+	padding:15px;
+	font-weight:bold;
+	
+}
+input[type="submit"]{
+	background-color:white;
+}

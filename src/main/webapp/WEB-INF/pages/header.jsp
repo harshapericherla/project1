@@ -4,7 +4,7 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
-<html>
+<html >
 <head>
   
   <!-- DataTables -->
@@ -56,7 +56,7 @@
      
      <li><a href="#aboutus"><span class="on">About</span></a></li>
      
-     <!-- when user logged in -->
+    <%--  <!-- when user logged in -->
     <c:if test="${pageContext.request.userPrincipal.name!=null }">
       <li class="dropdown">
         <a id="uni" href="" class="dropdown-toggle" data-toggle="dropdown"><span class="on">Shop</span><b class="caret"></b></a>  
@@ -71,9 +71,9 @@
      <c:url var="allproducts" value="/all/product/getallproducts"></c:url>
      <li><a href="${allproducts }"><span class="one">Browse products</span></a></li>
      </ul>
-     </li>
+     </li> --%>
      
-     <li class="dropdown">
+   <%--   <li class="dropdown">
         <a id="uni" href="" class="dropdown-toggle" data-toggle="dropdown"><span class="on">Select By Category</span><b class="caret"></b></a>  
                      
               <ul class="dropdown-menu">
@@ -82,8 +82,18 @@
                   <li><a href="${url1}"><span class="one">${c.categorydetails}</span></a></li>
                </c:forEach>
                </ul>
-    </li>
+    </li> --%>
+    <c:url var="allproducts" value="/all/product/getallproducts"></c:url>
+     <li><a href="${allproducts }"><span class="on">Shop</span></a></li>
+     
+     <!-- show add new product only when user is admin -->
+      <security:authorize access="hasRole('ROLE_ADMIN')">                
+     <c:url var="productform" value="/admin/product/productform"></c:url>
+     <li><a class="two" href="${productform }"><span class="on">Add New Product</span></a></li>
+     </security:authorize>
     
+  <c:if test="${pageContext.request.userPrincipal.name!=null }">
+
     <security:authorize access="hasRole('ROLE_USER')">
     <c:url var="cart" value="/cart/getCartId"></c:url>
        
@@ -118,5 +128,6 @@
   </nav>
  </header>
 </body>
-
+ <c:url var="script9" value="/resources/js/headercontroller.js"></c:url>
+  <script src="${script9}"></script>
 </html>

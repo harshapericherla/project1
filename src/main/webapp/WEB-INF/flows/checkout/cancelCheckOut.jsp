@@ -6,31 +6,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-</head>
+<c:url var="style1" value="/resources/css/cancelCheckout.css"></c:url>
+  <link rel="stylesheet" href="${style1}"/> 
 <style>
-    body{
+   body{
        margin-top:20%;
     }
-    h1,a{
+    h1{
+      font-size:50px;
+      font-weight:bold;
+      opacity:0.9;
       text-transform:uppercase;
-       font-weight:bold;
-       font-size:35px;
-    }
-    a{
-      font-size:25px;
-      color:red;
-      text-align:center;
-      text-decoration:none;
-    }
-    a:hover{
-      font-size:28px;
-        text-decoration:none;
-        color:red;
     }
 </style>
+</head>
 <body>
-
-<h1>Your Cart is empty!!!</h1>
-<a href="<c:url value="/all/product/getallproducts"></c:url>">shop now</a>
+    <h1>Your order has been Cancelled!!</h1>
 </body>
 </html>

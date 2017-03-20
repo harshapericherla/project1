@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -80,13 +81,25 @@ public class Productcontroller {
 	  outputStream.write(image);
 	  outputStream.close();
   }
-  @RequestMapping("/all/product/getallproducts")
+/*  @RequestMapping("/all/product/getallproducts")
   public String getallproducts(Model model){
 	  List<Product> products = productservice.getallproducts();
 	  
 	  model.addAttribute("products",products);
 	  return "productlist";   
+	}*/
+  
+  @RequestMapping("/all/product/getallproducts")
+  public String getallproducts(Model model){
+	  return "productlist";   
 	}
+  @RequestMapping("/all/product/getproobj")
+  public @ResponseBody List<Product> getproobj(){
+	  List<Product> products = productservice.getallproducts();
+	  System.out.println("-------------------hello------------------");
+	  return products;
+  }
+  
  @RequestMapping("/all/product/viewproduct/{id}") 
   public String viewproduct(@PathVariable int id,Model model){
 	 Product product = productservice.getProductById(id);

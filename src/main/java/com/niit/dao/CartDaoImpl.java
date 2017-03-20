@@ -1,6 +1,7 @@
 package com.niit.dao;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.persistence.criteria.Order;
 
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.model.Cart;
+import com.niit.model.CartItem;
 import com.niit.model.CustomerOrder;
 @Repository
 public class CartDaoImpl implements CartDao{
@@ -34,5 +36,6 @@ public class CartDaoImpl implements CartDao{
 		  return cart;
 		}
 	}
+	
     
 }

@@ -17,6 +17,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 
@@ -40,6 +42,7 @@ private String description;
   
   private int quantity;
  
+  
   private Date mfg;
 
   @ManyToOne
@@ -53,7 +56,7 @@ private String description;
   @Basic(fetch=FetchType.LAZY)
   private byte[] picture;
  
-  
+ 
   
 public byte[] getPicture() {
 	return picture;

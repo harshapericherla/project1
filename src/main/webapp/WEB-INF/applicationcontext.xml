@@ -36,6 +36,7 @@
                 <value>com.niit.model.Cart</value>
                 <value>com.niit.model.CartItem</value>
                 <value>com.niit.model.CustomerOrder</value>
+                <value>com.niit.model.Count</value>
             </list>  
         </property> 
   <property name="hibernateProperties">
@@ -62,8 +63,10 @@
        <security:intercept-url pattern="/login" access="permitAll"/>
        
        <security:intercept-url pattern="/all/product/image*/**" access="permitAll"/>
-        <security:intercept-url pattern="/all/regis*" access="permitAll"/>
+        <security:intercept-url pattern="/all/regis*/**" access="permitAll"/>
          <security:intercept-url pattern="/all/product/viewproduct*/**" access="permitAll"/>
+          <security:intercept-url pattern="/all/product/getallproducts**" access="permitAll"/>
+           <security:intercept-url pattern="/all/product/getproobj*/**" access="permitAll"/>
        <security:intercept-url pattern="/all/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/> 
        <security:intercept-url pattern="/before" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
        <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>

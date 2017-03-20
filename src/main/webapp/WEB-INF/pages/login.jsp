@@ -85,6 +85,7 @@
      padding:0;
      opacity:0.7;
      font-family:cursive;
+     font-size:30px;
    }
 </style>
 <script>
@@ -104,7 +105,7 @@
 </head>
 <body>
 <div class="login">
-<c:url var="security" value="j_spring_security_check"></c:url>
+<c:url var="security" value="/j_spring_security_check"></c:url>
 <h1>${error }</h1>
 <h1>${logout }</h1>
  <h1>${registersuccess}</h1>

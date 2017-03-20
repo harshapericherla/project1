@@ -41,7 +41,7 @@ $(document).ready(function(){
 	
   	
 	var location = window.location.href;
-	var name1 = "http://localhost:8080"+window.name;
+	var name1 = "http://localhost:8081"+window.name;
 	var $textcolor = $('a[href*="'+name+'"] .on');
 	if(location==name1){
 	$textcolor.css('color','white');
@@ -55,13 +55,18 @@ $(document).ready(function(){
 		});
 	});
 
-	if(location=="http://localhost:8080/projectone/" || location=="http://localhost:8080/projectone/home"){
+	if(location=="http://localhost:8081/projectone/" || location=="http://localhost:8081/projectone/home"){
 		$('a[href*="/home"] .on').css('color','white');
 	}
-	if(location=="http://localhost:8080/projectone/login?logout"){
+	if(location=="http://localhost:8081/projectone/login?logout"){
 		$('a[href*="/login"] .on').css('color','white');
 	}
-	 
+	if(location=="http://localhost:8081/projectone/all/product/getallproducts"){
+		$('a[href*="/getallproducts"] .on').css('color','white');
+	}
+	if(location=="http://localhost:8081/projectone/admin/product/productform"){
+		$('a[href*="/productform"] .on').css('color','white');
+	}
 	
 	
 });

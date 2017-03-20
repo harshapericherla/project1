@@ -5,7 +5,7 @@ app.controller("ProductController",function($scope,$http){
 	
 	
 	$scope.addToCart = function(productId){
-		$http.put('http://localhost:8080/projectone/cart/addCartItem/'+productId).success(function(){
+		$http.put('http://localhost:8081/projectone/cart/addCartItem/'+productId).success(function(){
 			
 			alert("Product sucessfully added to the cart");
 		});
@@ -13,19 +13,19 @@ app.controller("ProductController",function($scope,$http){
   
 	$scope.getCart=function(cartId){
 		$scope.cartId = cartId;
-		$http.get('http://localhost:8080/projectone/cart/getCart/'+cartId).success(function(data){
+		$http.get('http://localhost:8081/projectone/cart/getCart/'+cartId).success(function(data){
 			$scope.cart=data;
 		});
 	}
   $scope.removeFromCart=function(cartItemId){
 	  
-	  $http.put('http://localhost:8080/projectone/cart/removeCartItem/'+cartItemId).success(function(){
+	  $http.put('http://localhost:8081/projectone/cart/removeCartItem/'+cartItemId).success(function(){
 		  $scope.getCart($scope.cartId);
 	  });
   }
   $scope.clearCart=function(){
 	
-	 $http.put('http://localhost:8080/projectone/cart/removeAllCartItems/'+$scope.cartId).success(function(){
+	 $http.put('http://localhost:8081/projectone/cart/removeAllCartItems/'+$scope.cartId).success(function(){
 		 $scope.getCart($scope.cartId);
 	 })
   }
@@ -36,4 +36,7 @@ app.controller("ProductController",function($scope,$http){
 	  }
 	  return grandTotal;
   }
+  
+  
+  
 });
