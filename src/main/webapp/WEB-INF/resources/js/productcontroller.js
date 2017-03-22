@@ -1,16 +1,20 @@
 var app = angular.module("product",[]);
 app.controller("ProController",['$scope','$http',function($scope,$http){
+	
+	var origin= window.location.origin;
+	
 	$scope.getObj = function(){
 		
-		$http.get('http://localhost:8081/projectone/all/product/getproobj').success(function(data){
+		$http.get(origin+'/projectone/all/product/getproobj').success(function(data){
 			$scope.obj=data;
+			
 		});
 	}
    
 	$scope.addToCart = function(productId){
-		$http.put('http://localhost:8081/projectone/cart/addCartItem/'+productId).success(function(){
-			
-			alert("Product sucessfully added to the cart");
+		$http.put(origin+'/projectone/cart/addCartItem/'+productId).success(function(){
+			$scope.value=true;
+			alert("PRODUCT SUCESSFULLY ADDED TO THE CART");
 		});
 	}
 }]);

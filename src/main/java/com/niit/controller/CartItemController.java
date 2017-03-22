@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.niit.model.Cart;
@@ -41,6 +42,7 @@ public class CartItemController {
   @Autowired
   private CartService cartService;
   
+  //main operation, where the cartitems are updated according to the productId clicked
   @RequestMapping("/cart/addCartItem/{pid}")
   @ResponseStatus(value=HttpStatus.NO_CONTENT)
   public void addCartItem(@PathVariable(value="pid") int productId){
@@ -114,7 +116,7 @@ public class CartItemController {
 		  }  
 	  }
 	}
-  
+  //returns the cart when added before login [values are not yet persisted into database]
   @RequestMapping("/beforeCart/getBeforeLogin")
   public String displayCartBeforeLogin(Model model){
 	  int totalPrice=0;
@@ -129,7 +131,7 @@ public class CartItemController {
   }
   
   
-  
+//deletes the temporary value  
   @RequestMapping("/beforeCart/remove/{pid}")
   public String beforeDelete(@PathVariable int pid){
 	  
@@ -143,7 +145,7 @@ public class CartItemController {
 	  }
 	  return "redirect:/beforeCart/getBeforeLogin";
   }
-  
+  //deletes all the temporary values
   @RequestMapping("/beforeCart/removeAll")
   public String beforeDeleteAll(){
 	  Iterator idl = norepeat.iterator();
@@ -153,6 +155,8 @@ public class CartItemController {
 	  }
 	  return "redirect:/beforeCart/getBeforeLogin";
   }
+  
+  //updating the values when user logged in
   @RequestMapping("/updatecart")  
   public String updatethecart(){
 	 
@@ -168,6 +172,8 @@ public class CartItemController {
 	    }
 	 return "redirect:/home";
   }
+  
+  //for updating the cart values when not logged in but clicked checkout
  @RequestMapping("/updatecheckout")
   public String updatetheCartCheckout(){
 	  User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -182,7 +188,7 @@ public class CartItemController {
 	    }
 	 return "redirect:/before";
   }
-  
+  //for persisting, used while user was not logged in and need to update after logging in
   public void persist(int productId,String username){
 	  Customer customer = customerService.getCustomerByUsername(username);
 	  Cart cart = customer.getCart();
@@ -223,5 +229,35 @@ public class CartItemController {
 	  Cart cart = cartService.getCart(cartId);
 	  cartItemService.removeAllCartItems(cart);
   }
+  
+  // For updating the quantity value in the cart page
+  @RequestMapping("/cart/updatequan/{productId}/{quantity}")
+  @ResponseStatus(value=HttpStatus.NO_CONTENT)
+  public void updateQuantity(@PathVariable int productId,@PathVariable int quantity){
+	  System.out.println("--------------------"+productId+"-------"+quantity);
+	  
+	  User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	  String username = user.getUsername();
+	  
+	  Customer customer = customerService.getCustomerByUsername(username);
+	  Cart cart = customer.getCart();
+	  List<CartItem> cartItems = cart.getCartItems();
+	  Product product = productService.getProductById(productId);
+	  
+	  for(int i=0;i<cartItems.size();i++){
+		  CartItem cartItem = cartItems.get(i);
+		  Product p = cartItem.getProduct();
+		  if(p.getId() == productId){
+			  cartItem.setQuantity(quantity);
+			  cartItem.setTotalPrice(cartItem.getQuantity() * p.getPrice());
+			  cartItemService.addCartItem(cartItem);
+			  return;
+		  }
+	   
+	  }
+  }
+  
+       
+	
   
 }

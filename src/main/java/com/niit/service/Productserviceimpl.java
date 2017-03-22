@@ -40,5 +40,7 @@ public class Productserviceimpl implements Productservice{
 	public List<Product> getProductByDiscount(){
 		return productdao.getProductByDiscount();
 	}
-
+	public List<Product> getProductByNew(){
+		return productdao.getProductByNew();
+	}
 }

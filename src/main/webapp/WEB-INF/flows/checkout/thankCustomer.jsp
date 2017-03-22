@@ -15,10 +15,23 @@
        font-weight:bold;
        font-size:35px;
     }
+    a{
+      font-size:25px;
+      color:red;
+        font-weight:bold;
+      text-align:center;
+      text-decoration:none;
+    }
+    a:hover{
+      font-size:28px;
+        text-decoration:none;
+        color:red;
+    }
 </style>
 </head>
 <body>
     <h1>Thank you for your business!!!</h1>
     <h1>Your order will be shipped within two days</h1>
+    <a href="<c:url value="/all/product/getallproducts"></c:url>">SHOP NOW</a>
 </body>
 </html>

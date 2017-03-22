@@ -105,3 +105,40 @@
  .slide a{
   text-decoration:none;
  }
+
+ #newcontent{
+float:left;
+ width:50%;
+  background-color:black;
+ border:1px solid black;
+color:white;
+ }
+ #newimage{
+ background-color:black;
+ float:right;
+ width:50%;
+ background-color:white;
+ border:1px solid black;
+ padding:225px;
+ }
+ #incontent{
+  padding-top:20%;
+  font-size:75px;
+  font-family:'Arial Narrow';
+  margin-left:10%;
+ }
+ #incontent2{
+   margin-left:30%;
+   font-size:30px;
+   padding-bottom:30%;
+   cursor:pointer;
+   color:white;
+   text-decoration:none;
+ }
+ #incontent,#incontent2{
+  opacity:0.9;
+  font-weight:bold;
+ }
+ #incontent2:hover{
+   opacity:0.7;
+ }

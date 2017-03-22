@@ -10,4 +10,5 @@ public interface Productservice {
  void updateProduct(Product product);
  byte[] loadImage(int productid);
  List<Product> getProductByDiscount();
+ List<Product> getProductByNew();
 }

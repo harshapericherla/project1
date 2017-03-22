@@ -41,7 +41,9 @@
        
        </td>
          <td id="item">{{ca.product.name}}</td>
-         <td class="quan">{{ca.quantity}}</td>
+         <td class="quan">{{ca.quantity}}<span><input type="text" 
+                   style="color:black;margin-left:5%;width:20%;padding:10px;font-size:17px;font-weight:bold;" 
+         ng-model-options='{ debounce: 500 }'  ng-model="quant" ng-change="check(ca.product.id)" /></span></td>
          <td class="total">{{ca.totalPrice}}</td>
          <td class="remove"><a href="" class="btn btn-danger" pull-left ng-click="removeFromCart(ca.id)">Remove
          </a></td>

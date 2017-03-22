@@ -16,17 +16,35 @@
 
 </head>
 <body id="dark">
-<h1 id="sale">NOW ON SALE <br><span id="saleinner">UP TO 50%</span></h1>
+<div id="newarrival">
+<div id="newcontent">
+<h1 id="incontent">NEW   ARRIVALS</h1>
+<br/>
+<a id="incontent2" href="<c:url value="/all/product/getallproducts"></c:url>">SHOP NOW</a>
+</div>
+<c:url var="im1" value="/resources/images/backpack6.jpg"></c:url>
+<div id="newimage" style="background-image:url('${im1}');background-size:cover">
+<h1></h1>
+</div>
+</div>
+<br/>
+<br/>
+<h1 id="sale" style="clear:left;clear:right">NOW ON SALE <br><span id="saleinner">UP TO 50%</span></h1>
 <span class="glyphicon glyphicon-chevron-left clickleft"></span><span class="glyphicon glyphicon-chevron-right clickright"></span>
 <div id="slider">
  <ul class="slides">
         <c:forEach var="p" items="${discount}" >
           <c:url var="sr" value="/all/product/image/${p.id}"></c:url>
           <c:url var="url" value="/all/product/viewproduct/${p.id}"></c:url>
-           <li class="slide"><a href="${url }"><img src="${sr }"/><span id="product_name">${p.name }</span></a></li>
-           
+           <li class="slide"><a href="${url }"><img src="${sr }"/><span id="product_name">${p.name }</span></a>
+              <span id="discount_price" style="margin-left:15%;color:white;font-size:16px;font-weight:bold;text-decoration:line-through">INR 6000</span>
+              <span id="pro_price" style="margin-left:6%;color:white;font-size:16px;font-weight:bold">INR ${p.price }</span>
+           </li>
+        
          </c:forEach>
   </ul>
   </div>
+  <br/>
+  <br/>
 </body>
 </html>

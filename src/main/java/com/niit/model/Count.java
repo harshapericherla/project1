@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Count {
+ 
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
   private int id;

@@ -1,6 +1,6 @@
 $(document).ready(function(){
     
-   
+	
 	function size(){
 	var size = $(window).width();
 	return size;

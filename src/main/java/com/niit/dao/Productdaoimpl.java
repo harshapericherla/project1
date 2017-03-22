@@ -83,4 +83,11 @@ public List<Product> getProductByDiscount(){
 	List<Product> product = query.list();
 	return product;
 }
+public List<Product> getProductByNew(){
+	Session session = sessionFactory.openSession();
+	Query query = session.createQuery("from Product where category.id=?");
+	query.setInteger(0, 1);
+	List<Product> product = query.list();
+	return product;
+}
 }

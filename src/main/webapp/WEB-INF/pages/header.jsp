@@ -108,7 +108,7 @@
     <c:if test="${pageContext.request.userPrincipal.name==null }">
     
      <c:url var="cart" value="/beforeCart/getBeforeLogin"></c:url>
-    <li><a href="${cart }"><span class="on">Cart<span id="show"></span></span></a></li>
+    <li><a href="${cart }"><span class="on" >Cart <span id="show"></span></span></a></li>
 
     
     <li><a href="<c:url value="/all/registrationForm"></c:url>"><span class="on">Register</span></a></li>
@@ -129,5 +129,7 @@
  </header>
 </body>
  <c:url var="script9" value="/resources/js/headercontroller.js"></c:url>
+  <script src="${script9}"></script>
+ <c:url var="script9" value="/resources/js/productcontroller.js"></c:url>
   <script src="${script9}"></script>
 </html>

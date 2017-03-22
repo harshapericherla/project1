@@ -8,67 +8,54 @@
 <c:url var="style" value="/resources/css/productlis.css"></c:url>
 <link rel="stylesheet" href="${style}"/>
 <c:url var="script10" value="/resources/js/header.js"></c:url>
-<script src="${script10}"></script> 
-</head>
-<%-- <script>
-$(document).ready(function(){
-    var searchCondition = '${searchCondition}';
-    $(".table").DataTable({
-    	"dom":' <"search"f><"top"l>rt<"bottom"ip><"clear">',
-    	"lengthMenu":[[3,5,7,-1],[3,5,7,"All"]],      //"lengthMenu":[[3,5,7,-1],[3,5,7,"All"]],
-    	"oSearch":{"sSearch":searchCondition}
+<script src="${script10}"></script>
+ <script>
+    $(document).ready(function(){
+      $('#buy').css('color','red');
     });
-});
-</script>
+ </script>
+<c:url var="style6" value="/resources/css/imagedisplay.css"></c:url>
+  <link rel="stylesheet" href="${style6}"/> 
+   <c:url var="script2" value="/resources/js/imagedisplay.js"></c:url>
+  <script src="${script2}"></script>
+  <style>
+    #pro_price{
+      margin-left:14%;
+      font-size:20px;
+      font-weight:bold;
+      
+    }
+    #new{
+      margin-left:10%;
+      font-weight:bold;
+      font-size:16px;
+    }
+    .tool{
+       margin-top:57%;
+    }
+  </style>
+</head>
 
-<body class="back">
-
-   <div class="container">
-   
-     <table class="table table-stripped">
-        <thead>
-         <tr>
-             <th>Image</th>
-            <th>Product Name</th>
-            <th>Description</th>
-            <th>Category Details</th>
-             
-            <th>View<security:authorize access="hasRole('ROLE_ADMIN')"> /Delete/Edit</security:authorize></th>
-           
-         </tr>
-        </thead>
-        <c:forEach var="p" items="${products}" >
-          <tr>
-            <td>
-            <!--  
-              <c:url var="sr" value="/resources/images/${p.id}.png"></c:url>
-              <img src="${sr }" height="100px" width="100px"/>
-            -->
-            <c:url var="sr" value="/all/product/image/${p.id}"></c:url>
-              <img src="${sr }" height="100px" width="100px"/>
-            </td>
-            <td>${p.name}</td>
-            <td>${p.description}</td>
-            <td>${p.category.categorydetails}</td>
-             
-           <td>
-           <c:url var="url" value="/all/product/viewproduct/${p.id}"></c:url>
-           <a href="${ url}"><span class="glyphicon glyphicon-info-sign"></span></a>
-           <security:authorize access="hasRole('ROLE_ADMIN')"> 
-           <c:url var="delete" value="/admin/product/deleteproduct/${p.id}"></c:url>
-           <a href="${delete}"><span class="glyphicon glyphicon-remove"></span></a>
-           <c:url var="edit" value="/admin/product/editform/${p.id}"></c:url>
-           <a href="${edit}"><span class="glyphicon glyphicon-pencil"></span></a></td>
-           </security:authorize>
-          </tr>
-          
-        </c:forEach>
-     </table>
-   </div>
- 
- 
-</body> --%>
 <body ng-app="product" ng-controller="ProController" ng-init="getObj()">
+
+<h1 id="sale">NEW ARRIVALS</h1>
+<span class="glyphicon glyphicon-chevron-left clickleft"></span><span class="glyphicon glyphicon-chevron-right clickright"></span>
+<div id="slider">
+ <ul class="slides">
+        <c:forEach var="p" items="${newarrivals}" >
+          <c:url var="sr" value="/all/product/image/${p.id}"></c:url>
+          <c:url var="url" value="/all/product/viewproduct/${p.id}"></c:url>
+           <li class="slide"><a href="${url }"><img src="${sr }"/><span id="product_name">${p.name }</span></a>
+           <br/><span id="new">NEW</span><span id="pro_price">INR ${p.price }</span>
+           </li>
+           
+         </c:forEach>
+  </ul>
+  </div>
+<br/>
+<h1 id="sale">All BAGS</h1>
+<br/>
+<br/>
 <div class="upper">
 <div class="sortByCategory">
 
@@ -93,6 +80,8 @@ $(document).ready(function(){
  </div>
 </div>
   <ul class="productlist">
+       
+      <span class="tool" ng-show="value">product sucessfully added to the cart<span ng-click="value=false"class="tip">X</span></span>
        <li ng-repeat="product in obj| orderBy:order | filter:search ">
        
                 <c:url var="sr" value="/all/product/image/{{product.id}}"></c:url>
@@ -101,7 +90,12 @@ $(document).ready(function(){
                 <a href="${url}"><img ng-src="${sr }" height="200px" width="200px"/><br/></a>
                 <span id="pro_name">{{product.name}}</span><br/>
                     
-                <div class="image_below"><button id="buy" ng-click="addToCart(product.id)">BUY NOW</button> <span id="inr">INR {{product.price}}</span></div>
+            
+                 
+                 
+                <div class="image_below"><button id="buy" ng-click="addToCart(product.id)">BUY NOW</button> <span id="inr">INR {{product.price}}</span></div> 
+           
+           
             
        <security:authorize access="hasRole('ROLE_ADMIN')"> 
            <c:url var="delete" value="/admin/product/deleteproduct/{{product.id}}"></c:url>
@@ -112,6 +106,7 @@ $(document).ready(function(){
       </li>
   </ul>
 </body>
+
 <c:url var="script7" value="/resources/js/productcontroller.js"></c:url>
 <script src="${script7}"></script> 
 <c:url var="script6" value="/resources/js/controller.js"></c:url>

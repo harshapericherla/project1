@@ -18,9 +18,22 @@
       opacity:0.9;
       text-transform:uppercase;
     }
+     a{
+      font-size:25px;
+      font-weight:bold;
+      color:red;
+      text-align:center;
+      text-decoration:none;
+    }
+    a:hover{
+      font-size:28px;
+        text-decoration:none;
+        color:red;
+    }
 </style>
 </head>
 <body>
     <h1>Your order has been Cancelled!!</h1>
+    <a href="<c:url value="/cart/getCartId"></c:url>">Visit the Cart</h1>
 </body>
 </html>

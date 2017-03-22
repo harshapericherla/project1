@@ -21,6 +21,7 @@
       color:red;
       text-align:center;
       text-decoration:none;
+      font-weight:bold;
     }
     a:hover{
       font-size:28px;
@@ -31,6 +32,6 @@
 <body>
 
 <h1>Your Cart is empty!!!</h1>
-<a href="<c:url value="/all/product/getallproducts"></c:url>">shop now</a>
+<a href="<c:url value="/all/product/getallproducts"></c:url>">SHOP NOW</a>
 </body>
 </html>

@@ -77,3 +77,27 @@ body{
 a .remove:hover,a .edit:hover{
   text-decoration:none; 
 }
+ .tool{
+     position:absolute;
+     border:1px solid white;
+     color:black;
+     background-color:white;
+     padding:15px;
+     padding-right:25px;
+     z-index:8;
+     boder:1px solid white;
+     top:20%;
+     font-weight:bold;
+     font-size:20px;
+    
+  }
+  .tip{
+     
+     color:black;
+     font-weight:bold;
+     z-index:9;
+     font-size:20px;
+     margin-left:10px;
+     cursor:pointer;
+  }
+ 

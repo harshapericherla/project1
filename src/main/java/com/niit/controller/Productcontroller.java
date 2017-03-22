@@ -91,6 +91,8 @@ public class Productcontroller {
   
   @RequestMapping("/all/product/getallproducts")
   public String getallproducts(Model model){
+	  List<Product> newArrivals = productservice.getProductByNew();
+	  model.addAttribute("newarrivals",newArrivals);
 	  return "productlist";   
 	}
   @RequestMapping("/all/product/getproobj")

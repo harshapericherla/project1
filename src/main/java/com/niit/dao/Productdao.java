@@ -12,4 +12,5 @@ public interface Productdao {
    void updateProduct(Product product);
    byte[] loadImage(int productid);
    List<Product> getProductByDiscount();
+   List<Product> getProductByNew();
 }
