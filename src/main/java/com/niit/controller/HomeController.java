@@ -25,10 +25,7 @@ public class HomeController {
 	@Autowired
 	private Productservice productservice;	
 	
-	
-	
-	
-  public HomeController(){
+	public HomeController(){
 	  System.out.println("I am running");
   }
   @RequestMapping("/home")
