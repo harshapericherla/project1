@@ -24,7 +24,6 @@ public class CartController {
 	@Autowired
 	private CartService cartService;
 	
-	
   @RequestMapping("/cart/getCartId")
   public String getCartId(Model model){
 	  System.out.println("hello---------------");
