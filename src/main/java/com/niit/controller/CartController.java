@@ -23,8 +23,7 @@ public class CartController {
 	private CustomerService customerService;
 	@Autowired
 	private CartService cartService;
-	
-	
+
   @RequestMapping("/cart/getCartId")
   public String getCartId(Model model){
 	  System.out.println("hello---------------");
