@@ -12,6 +12,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.SetSimpleValueTypeSecondPass;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,10 +23,15 @@ import com.niit.model.Product;
 @Repository
 public class Productdaoimpl implements Productdao {
 	
+	private static final Logger logger = LoggerFactory.getLogger(Productdaoimpl.class);
+	
     @Autowired
 	private SessionFactory sessionFactory;
        public Productdaoimpl(SessionFactory sessionFactory){
+    	   
+    	   logger.info("session starat");
     	   this.sessionFactory=sessionFactory;
+    	   logger.info("session created");
     	   System.out.println("creating instance for productdaoimpl");
        }
 	public Product saveproduct(Product product) {
