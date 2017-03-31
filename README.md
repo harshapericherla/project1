@@ -1,4 +1,4 @@
-# project1 NIIT Project ①
+# Project1 NIIT Project ①
 
 This Ecommerce project is built using Spring, Hibernate ORM and Spring security consisting of basic funtionality like
 - New user registrations
@@ -15,6 +15,7 @@ This Ecommerce project is built using Spring, Hibernate ORM and Spring security 
 - [ ] **Install Tomcat** 
 - [ ] **Set Tomcat path**  [Reference](https://struts2spring.wordpress.com/2009/09/22/setting-the-java_home-catalina_home-environment-variable-on-windows/)
 - [ ] **Download Project** [here](https://github.com/harshapericherla/project1.git)
+- [ ] **Download video demo** [here](https://drive.google.com/file/d/0B8glnqe5iP9OaUFBYzRzZ19sU0k/view?usp=sharing)
 - [ ] **Import Project in Eclipse**
 	- File
 	- Import
@@ -35,10 +36,6 @@ H2 is a relational database management system written in Java. It can be embedde
 	Apache Tomcat is an open-source web server and servlet container developed by the Apache Software Foundation (ASF). Tomcat implements several Java EE specifications including Java Servlet, JavaServer Pages (JSP), Java EL, and WebSocket, and provides a "pure Java" HTTP web server environment for Java code to run in.
 	[Click here to download Tomcat 9.0.0.M11](http://redrockdigimark.com/apachemirror/tomcat/tomcat-9/v9.0.0.M11/bin/apache-tomcat-9.0.0.M11-windows-x64.zip)
   
-- **NPM**
-	NPM is the package manager for JavaScript. Find, share, and reuse packages of code from hundreds of thousands of developers — and assemble them in powerful new     ways.npm is distributed with Node.js- which means that when you download Node.js, you automatically get npm installed on your computer.
- 	[Click here to download Node JS v6.9.1](https://nodejs.org/dist/v6.9.1/node-v6.9.1-x64.msi)
-
 ##Frameworks used
 -	**Bootstrap v3.3.7**
 	Bootstrap is the most popular HTML, CSS, and JavaScript framework for developing  	  responsive, mobile-first web sites. [Click here to downlaod Bootstrap 3.3.7](https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip) or `npm install bootstrap@3`
