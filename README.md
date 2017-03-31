@@ -15,7 +15,7 @@ This Ecommerce project is built using Spring, Hibernate ORM and Spring security 
 - [ ] **Install Tomcat** 
 - [ ] **Set Tomcat path**  [Reference](https://struts2spring.wordpress.com/2009/09/22/setting-the-java_home-catalina_home-environment-variable-on-windows/)
 - [ ] **Download Project** [here](https://github.com/harshapericherla/project1.git)
-- [ ] **Download video demo** [here](https://drive.google.com/file/d/0B8glnqe5iP9OaUFBYzRzZ19sU0k/view?usp=sharing)
+- [ ] **Download video demo** [here](https://drive.google.com/file/d/0B8glnqe5iP9OVVAwRVB3ZkNEZVk/view?usp=sharing)
 - [ ] **Import Project in Eclipse**
 	- File
 	- Import
